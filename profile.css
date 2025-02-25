@@ -1,0 +1,10 @@
+html, body {
+    height: 100%;
+    padding: 20px;
+    background-color: lightblue;
+}
+
+#name {
+    margin-bottom: 50px;
+}
+

@@ -1,0 +1,40 @@
+<html>
+    <Head>
+        <h1>PHP Times Table</h1>
+    </Head>
+    <body>
+        <form method="POST">
+            <label for="size">Enter the size of the times table:</label>
+            <input type="number" id="size" name="size" min="1" required>
+            <input type="submit" value="Generate Table">
+        </form>
+        
+        <?php
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                $size = intval($_POST['size']);
+
+
+                echo "<table border='1'><tbody>";
+
+                echo "<tr><td></td>";
+                for ($i = 1; $i <= $size; $i++) {
+                    echo "<td>$i</td>";
+                }
+                echo "</tr>";
+
+                for ($i = 1; $i <= $size; $i++) {
+                    echo "<tr><td>$i</td>";
+                    for ($j = 1; $j <= $size; $j++) {
+                        $result = $i * $j;
+                        echo "<td>$result</td>";
+                    }
+                    echo "</tr>";
+                }
+
+                // Close the table
+                echo "</tbody></table>";
+            }
+        ?>
+    </body>
+</html>
